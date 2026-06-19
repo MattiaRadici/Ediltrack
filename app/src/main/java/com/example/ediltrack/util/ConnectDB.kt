@@ -446,7 +446,7 @@ object ConnectDB {
             return supabase.postgrest["problematica"].select {
                 // Filtri
                 filter {
-                    //TODO ottimizzare la funzione prendendo solo gli id dei cantieri
+                    // Ottimizzazione futura: scaricare solo gli ID dei cantieri per ridurre il traffico dati
                     isIn("cantiere", cant.map { it.id })
                     //Filtro per Testo (Se la searchQuery non è null o vuota)
                     if (!searchQuery.isNullOrBlank()) {

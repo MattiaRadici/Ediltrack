@@ -40,7 +40,7 @@ class HomeActivity: AppCompatActivity()  {
                                 }
 
                                 UserRole.OPERAIO.code->{
-                                        //TODO(mettere nella relazione che qui senza questo controllo si bugga)
+                                        // Gestione bug salvataggio stato fragment
                                         if(layoutInitialized) return@observe
                                         else layoutInitialized = true
                                         //Log.e("ruolo2",ruolo.toString())
