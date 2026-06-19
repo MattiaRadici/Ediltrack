@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_user"
+    app:startDestination="@+id/nav_home_dip">
+
+        <fragment
+            android:id="@+id/nav_home_dip"
+            android:name="com.example.ediltrack.ui.view.fragment.HomeDipendenteFragment"
+            android:label="Home"
+            tools:layout="@layout/fragment_home_dipendente"
+            >
+            <action android:id="@+id/action_navigation_homeDip_to_selFaseFragmentt"
+                app:destination="@id/nav_sel_fase" />
+            <action android:id="@+id/action_navigation_homeDip_to_selectCantiere"
+                app:destination="@id/nav_sel_cant" />
+        </fragment>
+        <fragment
+            android:id="@+id/nav_sel_fase"
+            android:name="com.example.ediltrack.ui.view.fragment.SelectFaseFragment"
+            android:label="Selziona Fase"
+            tools:layout="@layout/fragment_seleziona_fasi">
+        </fragment>
+        <fragment
+            android:id="@+id/nav_sel_cant"
+            android:name="com.example.ediltrack.ui.view.fragment.SelezionaCantiereFragment"
+            android:label="Seleziona Cantiere"
+            tools:layout="@layout/fragment_seleziona_cantiere">
+        </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_prob_list"
+        android:name="com.example.ediltrack.ui.view.fragment.ProblematicheListFragment"
+        android:label="Problematiche"
+        tools:layout="@layout/fragment_problematiche_list" >
+        <argument
+            android:name="cantiereIdFilter"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    <action
+        android:id="@+id/action_lista_problematiche_to_dettaglio"
+        app:destination="@id/problematicaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/problematicaDetailFragment"
+        android:name="com.example.ediltrack.ui.view.fragment.ProblematicaDetailFragment"
+        android:label="Dettaglio Problematica"
+        tools:layout="@layout/fragment_problematica_detail">
+        <argument
+            android:name="problematica_key"
+            app:argType="com.example.ediltrack.model.Problematica"
+            app:nullable="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_impostazioni"
+        android:name="com.example.ediltrack.ui.view.fragment.ImpostazioniFragment"
+        android:label="Impostazioni"
+        tools:layout="@layout/fragment_impostazioni" />
+</navigation>

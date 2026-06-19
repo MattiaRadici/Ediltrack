@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.ediltrack.ui.viewmodel.DipendenteSingoloViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Immagine profilo -->
+        <ImageView
+            android:id="@+id/img_profilo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <!-- Titolo Anagrafica -->
+        <TextView
+            android:id="@+id/label_anagrafica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anagrafica"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            app:layout_constraintTop_toBottomOf="@id/img_profilo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Label Nome -->
+        <TextView
+            android:id="@+id/label_nome_utente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nome"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/label_anagrafica"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Sezione Nome -->
+        <LinearLayout
+            android:id="@+id/nome_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/label_nome_utente"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/nome_utente"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@={viewModel.nome}"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/btn_modifica_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modifica"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="12dp"
+                android:backgroundTint="@color/primary"
+                android:textColor="@android:color/white"
+                android:layout_margin="8dp" />
+        </LinearLayout>
+
+        <!-- Label Cognome -->
+        <TextView
+            android:id="@+id/label_cognome_utente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cognome"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/nome_section"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Sezione Cognome -->
+        <LinearLayout
+            android:id="@+id/cognome_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/label_cognome_utente"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/cognome_utente"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.cognome}"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/btn_modifica_cognome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modifica"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="12dp"
+                android:backgroundTint="@color/primary"
+                android:textColor="@android:color/white"
+                android:layout_margin="8dp" />
+        </LinearLayout>
+
+        <!-- Label Ruolo -->
+        <TextView
+            android:id="@+id/label_ruolo_utente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ruolo"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/cognome_section"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Sezione Ruolo -->
+        <LinearLayout
+            android:id="@+id/ruolo_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/label_ruolo_utente"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Spinner
+                android:id="@+id/ruolo_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown"
+                android:enabled="false"
+                android:textSize="18sp"
+                android:layout_margin="8dp"/>
+
+            <!--<EditText
+                android:enabled="false"
+                android:id="@+id/ruolo_utente"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.ruolo}"
+                android:layout_weight="1"
+                android:textSize="18sp"/>-->
+
+            <Button
+                android:id="@+id/btn_modifica_ruolo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modifica"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="12dp"
+                android:backgroundTint="@color/primary"
+                android:textColor="@android:color/white"
+                android:layout_margin="8dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_salva_utente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/salva"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:padding="12dp"
+            android:backgroundTint="@color/primary"
+            android:textColor="@android:color/white"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/ruolo_section"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

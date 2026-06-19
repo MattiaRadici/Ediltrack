@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+
+
+    <!-- Sezione admin e capocantiere -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.ediltrack.ui.view.fragment.CantieriFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_cantieri">
+        <action android:id="@+id/action_navigation_home_to_dettagliCantieriFragment"
+            app:destination="@id/nav_singolo_cant" />
+        <action android:id="@+id/action_navigation_home_to_nuovo"
+            app:destination="@id/nav_graph_nuovo_cantiere"/>
+        <action android:id="@+id/action_cant_to_prob"
+            app:destination="@id/nav_prob_list"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_singolo_cant"
+        android:name="com.example.ediltrack.ui.view.fragment.SingoloCantFragment"
+        android:label="Singolo Cantiere"
+        tools:layout="@layout/fragment_dettaglio_cantiere">
+        <action android:id="@+id/action_dettaglio_cant_to_prob"
+            app:destination="@id/nav_prob_list" />
+        <action android:id="@+id/action_dettaglio_cant_to_fasi"
+            app:destination="@id/nav_gestione_fasi_esistenti"/>
+        <action
+            android:id="@+id/action_dettaglio_cant_to_seleziona_utenti"
+            app:destination="@id/nav_seleziona_utenti_cantiere" />
+        <argument
+            android:name="cantiereId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_seleziona_utenti_cantiere"
+        android:name="com.example.ediltrack.ui.view.fragment.SelezionaUtentiCantiereFragment"
+        android:label="Modifica Utenti"
+        tools:layout="@layout/fragment_seleziona_utenti">
+
+        <argument
+            android:name="cantiereId"
+            app:argType="integer" />
+
+        <argument
+            android:name="mode"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gestione_fasi_esistenti"
+        android:name="com.example.ediltrack.ui.view.fragment.FasiEditFragment"
+        android:label="Gestione Fasi"
+        tools:layout="@layout/fragment_associa_fasi">
+        <argument
+        android:name="cantiereId"
+        app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_prob_list"
+        android:name="com.example.ediltrack.ui.view.fragment.ProblematicheListFragment"
+        android:label="Problematiche"
+        tools:layout="@layout/fragment_problematiche_list" >
+        <argument
+            android:name="cantiereIdFilter"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+        <action
+            android:id="@+id/action_lista_problematiche_to_dettaglio"
+            app:destination="@id/problematicaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/problematicaDetailFragment"
+        android:name="com.example.ediltrack.ui.view.fragment.ProblematicaDetailFragment"
+        android:label="Dettaglio Problematica"
+        tools:layout="@layout/fragment_problematica_detail">
+        <argument
+            android:name="problematica_key"
+            app:argType="com.example.ediltrack.model.Problematica"
+            app:nullable="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_impostazioni"
+        android:name="com.example.ediltrack.ui.view.fragment.ImpostazioniFragment"
+        android:label="Impostazioni"
+        tools:layout="@layout/fragment_impostazioni" />
+
+    <fragment
+        android:id="@+id/nav_dipendenti"
+        android:name="com.example.ediltrack.ui.view.fragment.DipendenteFragment"
+        android:label="Dipendenti"
+        tools:layout="@layout/fragment_dipendenti">
+        <action android:id="@+id/action_navigation_listop_to_dettagliOperai"
+            app:destination="@id/nav_dipendente_singolo" />
+        <action android:id="@+id/action_navigation_listo_to_nuovo"
+            app:destination="@id/nav_nuovo_utente" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_nuovo_utente"
+        android:name="com.example.ediltrack.ui.view.fragment.NuovoUtenteFragment"
+        android:label="Nuovo Utente"
+        tools:layout="@layout/fragment_nuovo_utente" />
+
+    <fragment
+        android:id="@+id/nav_dipendente_singolo"
+        android:name="com.example.ediltrack.ui.view.fragment.DettaglioDipendenteFragment"
+        android:label="Dipendente Singolo"
+        tools:layout="@layout/fragment_dettaglio_dipendente">
+    <argument
+        android:name="dipendenteId"
+        app:argType="string" />
+    </fragment>
+    <navigation android:id="@+id/nav_graph_nuovo_cantiere"
+        app:startDestination="@id/nav_nuovo_cantiere">
+        <fragment
+            android:id="@+id/nav_nuovo_cantiere"
+            android:name="com.example.ediltrack.ui.view.fragment.NuovoCantiereFragment"
+            android:label="@string/nuovo_cantiere"
+            tools:layout="@layout/fragment_nuovo_cantiere">
+            <action
+                android:id="@+id/action_nuovo_fragment_to_seleziona_utenti_fragment"
+                app:destination="@id/nav_seleziona_utenti"/>
+            <action
+                android:id="@+id/action_nuovo_fragment_to_seleziona_fasi_fragment"
+                app:destination="@id/nav_seleziona_fasi"/>
+        </fragment>
+        <fragment
+            android:id="@+id/nav_seleziona_fasi"
+            android:name="com.example.ediltrack.ui.view.fragment.SelezionaFasiFragment" />
+        <fragment
+            android:id="@+id/nav_seleziona_utenti"
+            android:name="com.example.ediltrack.ui.view.fragment.SelezionaUtentiFragment">
+            <argument
+                android:name="mode"
+                app:argType="string"
+                app:nullable="false" />
+        </fragment>
+    </navigation>
+
+</navigation>

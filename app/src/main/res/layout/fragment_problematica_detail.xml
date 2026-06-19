@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.ediltrack.ui.viewmodel.ProblematicaDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="32dp">
+
+            <ImageView
+                android:id="@+id/ivProblematica"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:background="#EEEEEE"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_constraintBottom_toBottomOf="@id/ivProblematica"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivProblematica">
+
+                <TextView
+                    android:id="@+id/tvStatoDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:textStyle="bold"
+                    tools:text="DA CONTROLLARE"
+                    tools:textColor="#FFC107" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvDescrizioneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descrizione"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                app:layout_constraintTop_toBottomOf="@id/ivProblematica"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvDescrizione"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="16dp"
+                android:text="@{viewModel.problematica.descrizione}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvDescrizioneLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Tubo rotto nel bagno principale al secondo piano" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginVertical="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvDescrizione"/>
+
+            <TextView
+                android:id="@+id/tvCantiereLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cantiere"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                app:layout_constraintTop_toBottomOf="@id/divider1"
+                app:layout_constraintStart_toStartOf="@+id/tvDescrizioneLabel"/>
+
+            <TextView
+                android:id="@+id/tvNomeCantiere"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.nomeCantiere}"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginTop="2dp"
+                app:layout_constraintTop_toBottomOf="@id/tvCantiereLabel"
+                app:layout_constraintStart_toStartOf="@+id/tvDescrizioneLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Residenza I Pini" />
+
+            <TextView
+                android:id="@+id/tvMittenteLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/segnalato_da"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvNomeCantiere"
+                app:layout_constraintStart_toStartOf="@+id/tvDescrizioneLabel"/>
+
+            <TextView
+                android:id="@+id/tvNomeMittente"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.nomeMittente}"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginTop="2dp"
+                app:layout_constraintTop_toBottomOf="@id/tvMittenteLabel"
+                app:layout_constraintStart_toStartOf="@+id/tvDescrizioneLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Mario Rossi (Capocantiere)" />
+
+            <LinearLayout
+                android:id="@+id/layoutAzioniCapocantiere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNomeMittente">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#E0E0E0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Gestione Problematica"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilSelezioneAzione"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="Seleziona Azione">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/actvAzione"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        tools:text="Contrassegna come Risolto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilNoteCapo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Note o Commenti">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNoteCapo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:minLines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnConfermaAzione"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="@string/conferma_modifica"
+                    app:cornerRadius="8dp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

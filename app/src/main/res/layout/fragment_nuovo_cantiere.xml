@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.ediltrack.ui.viewmodel.NuovoCantiereViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/label_nuovo_cantiere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuovo_cantiere"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="16dp"/>
+        <!-- Label + EditText: Nome -->
+        <TextView
+            android:id="@+id/tvLabelNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nome"
+            app:layout_constraintTop_toBottomOf="@+id/label_nuovo_cantiere"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/NomeCantiere"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/nome"
+            android:text="@={viewModel.nome}"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelNome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Label + EditText: Luogo -->
+        <TextView
+            android:id="@+id/tvLabelLuogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/luogo"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/NomeCantiere"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/Luogo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/luogo"
+            android:text="@={viewModel.luogo}"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelLuogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Upload immagine -->
+        <TextView
+            android:id="@+id/tvLabelImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/immagine_cantiere"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/Luogo"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/btnUploadImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carica immagine"
+            style="@style/ButtonCantiereStyle"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelImg"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- Switch per dismesso -->
+        <TextView
+            android:id="@+id/tvLabelDismesso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cantiere_dismesso"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/btnUploadImg"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Switch
+            android:id="@+id/switchDismesso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={viewModel.dismesso}"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelDismesso"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- Bottoni associazioni -->
+        <Button
+            android:id="@+id/btnAssociaCapoCant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/associa_capocant"
+            android:layout_marginTop="24dp"
+            style="@style/ButtonCantiereStyle"
+            app:layout_constraintTop_toBottomOf="@id/switchDismesso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnAssociaOperaio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/associa_operaio"
+            android:layout_marginTop="16dp"
+            style="@style/ButtonCantiereStyle"
+            app:layout_constraintTop_toBottomOf="@id/btnAssociaCapoCant"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnFasi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/associa_fasi"
+            android:layout_marginTop="16dp"
+            style="@style/ButtonCantiereStyle"
+            app:layout_constraintTop_toBottomOf="@id/btnAssociaOperaio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <Button
+            android:id="@+id/btnSalvaCantiere"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:text="@string/salva"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/ButtonCantiereStyle"
+            app:layout_constraintTop_toBottomOf="@id/btnFasi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

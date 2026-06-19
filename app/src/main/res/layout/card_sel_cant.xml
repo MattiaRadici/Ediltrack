@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="cantiere"
+            type="com.example.ediltrack.model.Cantiere" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardCantiere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#E0E0E0"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvNomeCantiere"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{cantiere.nome}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnSelect"
+                tools:text="Ristrutturazione Villa Rossi" />
+
+            <TextView
+                android:id="@+id/tvLabelLuogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/luogo"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNomeCantiere" />
+
+            <TextView
+                android:id="@+id/tvLuogo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{cantiere.luogo}"
+                android:textSize="14sp"
+                android:textColor="#424242"
+                app:layout_constraintBottom_toBottomOf="@+id/tvLabelLuogo"
+                app:layout_constraintStart_toEndOf="@+id/tvLabelLuogo"
+                app:layout_constraintEnd_toStartOf="@+id/btnSelect"
+                app:layout_constraintTop_toTopOf="@+id/tvLabelLuogo"
+                tools:text="Via Roma 12, Milano" />
+
+
+            <Button
+                android:id="@+id/btnSelect"
+                style="@style/ButtonCantiereStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seleziona"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

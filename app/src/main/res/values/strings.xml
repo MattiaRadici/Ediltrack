@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">EdilTrack</string>
+
+    <!-- login page -->
+    <string name="textEmail">Email</string>
+    <string name="textPassword">Passoword</string>
+    <string name="buttonLogin">Login</string>
+    <string name="recovery">Recupera Password</string>
+
+    <!--STRINGHE CARD cantiere-->
+    <string name="capocantiere">Capocantiere</string>
+    <string name="dipendenti">Dipendenti</string>
+    <string name="buttonDettagli">Dettagli</string>
+
+    <!--STRINGHE CARD operaio-->
+
+    <!--STRINGHE  dettagli cantiere-->
+    <string name="fasi">Fasi</string>
+    <string name="nome">Nome</string>
+    <string name="report">Report</string>
+    <string name="visualizza_report">Visualizza Report</string>
+    <string name="luogo">Luogo</string>
+    <string name="anagrafica">Anagrafica</string>
+
+    <!--STRINGHE  dettagli operaio-->
+    <string name="cognome">Cognome</string>
+    <string name="ruolo">Ruolo</string>
+    <string name="salva">Salva</string>
+    <string name="modifica">Modifica</string>
+
+    <!--STRINGHE nuovo cantiere-->
+    <string name="nuovo_cantiere">Nuovo cantiere</string>
+    <string name="immagine_cantiere">Immagine cantiere</string>
+    <string name="carica">Carica</string>
+    <string name="cantiere_dismesso">Cantiere dismesso?</string>
+    <string name="associa_capocant">Associa capocantiere</string>
+    <string name="associa_cantiere">Aggiungi cantiere</string>
+    <string name="associa_operaio">Associa operaio</string>
+    <string name="descrizione">Descrizione</string>
+    <string name="numero_fase">Numero Fase</string>
+    <string name="titolo">Titolo</string>
+    <string name="associa_fasi">Associa Fasi</string>
+    <string name="aggiungi_fase">Aggiungi Fase</string>
+    <string name="terminata">Terminata</string>
+    <string name="elimina">Elimina</string>
+    <string name="gestisci_fasi">Gestisci Fasi</string>
+
+    <string name ="cerca">Cerca</string>
+
+    <string name="nuovo_utente">Nuovo Utente</string>
+    <string name="immagine_operatore">Immagine Operatore</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <!--STRINGHE NUOVA PROBLEMATICA-->
+    <string name="nuova_problematica">Nuova Problematica</string>
+    <string name="immagine">Immagine</string>
+    <string name="cantiere">Cantiere</string>
+    <string name="fase">Fase</string>
+
+
+    <!-- STRINGHE SELEZIONE-->
+    <string name="seleziona_cantiere">Seleziona Cantiere</string>
+    <string name="seleziona_fase">Seleziona fase</string>
+    <string name="seleziona">Seleziona</string>
+
+
+    <string name="nessuna_problematica">Nessuna Problematica Trovata</string>
+    <string name="segnalato_da">Segnalato da</string>
+    <string name="loading">Caricamento...</string>
+    <string name="conferma_modifica">Conferma Modifiche</string>
+
+    <string name="auth_welcome">Benvenuto</string>
+    <string name="auth_forgot_password_link">Password dimenticata?</string>
+    <string name="auth_recovery_title">Recupera la tua password</string>
+    <string name="auth_recovery_instruction">Inserisci la tua email, ti invieremo un link per resettarla.</string>
+    <string name="auth_recovery_email_hint">Email di recupero</string>
+    <string name="auth_send_link_btn">Invia Link di Reset</string>
+
+    <string name="auth_sending">Invio in corso...</string>
+    <string name="auth_success_sent">Link inviato! Controlla la tua email.</string>
+    <string name="auth_error_generic">Errore: verifica l\'email o la connessione.</string>
+    <string name="auth_error_empty_email">Inserisci l\'email</string>
+</resources>
